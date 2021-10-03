@@ -14,9 +14,16 @@ const server = http.createServer((req, res) => {
         res.statusCode = 200
         res.setHeader('Content-Type', 'text/html;charset=UTF-8');
         let abc = data.toString();
-        const alert = `<script>window.print()</script>`
+        const alert = `<script>window.print()</script>`;
+        const css = 
+          `<style>
+              pre{
+                font-size: 20px;
+                font-family: "微軟正黑體";
+              }
+          </style>`;
         let show = markdown.toHTML(abc)
-        res.end(alert+show);
+        res.end(css+show+alert);
     }
   });
 });
